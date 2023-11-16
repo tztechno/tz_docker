@@ -1,0 +1,13 @@
+# Dockerfile
+FROM gcc:latest
+WORKDIR /usr/app
+COPY 001.cpp .
+RUN g++ -o p001 001.cpp
+CMD ["./p001"]
+
+# Dockerイメージのビルド
+docker build -t my_cpp_image .
+
+# Dockerコンテナの実行
+docker run my_cpp_image
+
