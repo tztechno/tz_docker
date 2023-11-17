@@ -1,0 +1,39 @@
+#Dockerfile
+# ベースイメージを指定
+FROM ruby:latest
+# 作業ディレクトリを設定
+WORKDIR /app
+# ホストのGemfileとGemfile.lockをコピー
+COPY app/Gemfile app/Gemfile.lock ./
+# ソースコードをコピー
+COPY . .
+# Gemのインストール
+RUN bundle update && bundle install
+# ポートの公開（必要に応じて変更）
+EXPOSE 3000
+# コンテナが起動するときに実行されるコマンド
+CMD ["ruby", "hello.rb"]
+
+# Gemfile
+source "https://rubygems.org"
+gem "sinatra"
+
+# Gemfile.lock
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
+    sinatra (2.1.0)
+      rack (~> 2.0)
+      rack-protection (>= 2.0)
+      tilt (>= 2.0)
+PLATFORMS
+  ruby
+DEPENDENCIES
+  sinatra
+
+# hello.rb
+puts "Hello, Ruby!"
+
