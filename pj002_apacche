@@ -4,6 +4,11 @@ FROM httpd:2.4
 # ポート80を外部に公開
 EXPOSE 80
 
+
 #bash
 docker build -t my-php-apache .
 docker run -d -p 80:80 --name my-php-apache php:apache
+
+
+#access
+http://localhost:8081/
