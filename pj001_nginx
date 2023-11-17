@@ -8,3 +8,6 @@ EXPOSE 80
 #bash
 docker build -t my-nginx-image .
 docker run -p 8080:80 --name my-nginx-container my-nginx-image
+
+#access
+http://localhost:8080
