@@ -49,3 +49,7 @@ console.log(sayHello(myName));
         "strict": true
     }
 }
+
+#bash
+docker build -t my_image .
+docker run -it my_image
