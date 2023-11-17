@@ -1,0 +1,19 @@
+# Dockerfile
+FROM rust:latest
+WORKDIR /app
+# Copy the entire project into the container
+COPY . .
+# Build the Rust project
+RUN cargo build
+# Run the compiled Rust program
+CMD ["cargo", "run"]
+
+
+#bash
+docker build -t my-python-app .
+docker run my-python-app
+
+
+#direct bash
+cargo init (create Cargo.toml)
+cargo run
