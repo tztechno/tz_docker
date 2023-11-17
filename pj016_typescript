@@ -1,0 +1,51 @@
+#Dockerfile
+# Node.js 14をベースにする
+FROM node:14
+# プロジェクトのディレクトリを作成
+WORKDIR /usr/src/app
+# TypeScriptとts-nodeをグローバルにインストール
+RUN npm install -g typescript ts-node
+# プロジェクトの依存関係をインストール
+COPY package*.json ./
+RUN npm install
+# ソースコードをコピー
+COPY . .
+# TypeScriptをビルド
+RUN tsc
+# アプリケーションの起動コマンド
+CMD [ "ts-node", "./src/index.ts" ]
+
+
+#index.ts
+// src/index.ts
+function sayHello(name: string): string {
+    return `Hello, ${name}!`;
+}
+const myName: string = "TypeScript";
+console.log(sayHello(myName));
+
+
+#package.json
+{
+    "name": "000",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "ts-node src/index.ts"
+    },
+    "dependencies": {
+    }
+}
+
+
+#tsconfig.json
+// tsconfig.json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "strict": true
+    }
+}
