@@ -9,11 +9,11 @@ RUN cargo build
 CMD ["cargo", "run"]
 
 
-#bash
+#bash(container)
 docker build -t my-python-app .
 docker run my-python-app
 
 
-#direct bash
+#bash(host)
 cargo init (create Cargo.toml)
 cargo run
