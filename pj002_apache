@@ -7,8 +7,8 @@ EXPOSE 80
 
 #bash
 docker build -t my-php-apache .
-docker run -d -p 8081:80 --name my-php-apache php:apache
+docker run -d -p 8080:80 --name my-php-apache php:apache
 
 
 #access
-http://localhost:8081/
+http://localhost:8080
