@@ -2,13 +2,13 @@
 # ベースイメージを指定
 FROM httpd:2.4
 # ポート80を外部に公開
-EXPOSE 80
+EXPOSE 81
 
 
 #bash
 docker build -t my-php-apache .
-docker run -d -p 8080:80 --name my-php-apache php:apache
+docker run -d -p 8081:81 --name my-php-apache php:apache
 
 
 #access
-http://localhost:8080
+http://localhost:8081
