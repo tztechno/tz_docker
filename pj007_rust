@@ -10,8 +10,8 @@ CMD ["cargo", "run"]
 
 
 #bash(container)
-docker build -t my-python-app .
-docker run my-python-app
+docker build -t my-app .
+docker run my-app
 
 
 #bash(host)
