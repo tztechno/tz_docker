@@ -3,8 +3,14 @@
 # フォルダにappach,laravel,phpの環境を構築しhelloを表示するdockerfile
 
 docker build -t my-laravel-app .  
-docker run -p 8080:80 my-laravel-app
-http://localhost:8080 
+
+docker run -p 8090:90 my-laravel-app
+    AH00558: apache2: Could not reliably determine the server's fully qualified domain name, 
+    using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+
+http://localhost:8090 
+
+このサイトにアクセスできません
 
 -----------------------------------------
 #dockerfile
