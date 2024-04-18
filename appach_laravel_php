@@ -1,0 +1,34 @@
+-----------------------------------------
+#build.txt
+# フォルダにappach,laravel,phpの環境を構築しhelloを表示するdockerfile
+
+docker build -t my-laravel-app .  
+docker run -p 8080:80 my-laravel-app
+http://localhost:8080 
+
+-----------------------------------------
+#dockerfile
+# ベースイメージの指定
+FROM php:7.4-apache
+
+# パッケージのインストール
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    unzip \
+    git
+
+# Composerのインストール
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Laravelのインストール
+WORKDIR /var/www/html
+RUN composer create-project --prefer-dist laravel/laravel .
+
+# Apacheの設定変更
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN a2enmod rewrite
+
+# Apacheの再起動
+CMD apache2-foreground
+-----------------------------------------
+
