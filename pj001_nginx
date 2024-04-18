@@ -12,3 +12,16 @@ docker run -p 8080:80 --name my-nginx-container my-nginx-image
 
 #access
 http://localhost:8080
+
+
+-----------------------------------
+
+Welcome to nginx!
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.
+
+-----------------------------------
