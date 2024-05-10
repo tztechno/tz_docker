@@ -1,3 +1,15 @@
+# buildin_php
+
+```
+docker build -t my_php .
+
+php -S localhost:8022
+```
+
+index.php successfully show homepage.
+
+---
+
 # ベースイメージを指定
 FROM php:latest
 
