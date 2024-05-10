@@ -100,10 +100,8 @@
         --tlsverify          Use TLS and verify the remote
     -v, --version            Print version information and quit
   
-  Run 'docker COMMAND --help' for more information on a command.
-```
-
 
   
   For more help on how to use Docker, head to https://docs.docker.com/go/guides/
 
+```
